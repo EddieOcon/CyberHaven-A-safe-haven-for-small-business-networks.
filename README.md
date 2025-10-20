@@ -1,88 +1,80 @@
 # 🛡️ CyberHaven – A Safe Haven for Small Business Networks
 
-###  Overview
+## Overview
+**CyberHaven Guardian** is a free, open-source cybersecurity tool designed to **detect, trap, and alert** on malicious activity in **real time**.
 
-**CyberHaven** is a free, open-source cybersecurity tool designed to **detect, trap, and alert** on malicious activity in real time.  
-Built with small businesses and everyday users in mind, CyberHaven acts as a lightweight **digital shield**, monitoring network traffic, identifying threats, and automatically isolating suspicious activity — all without expensive enterprise-grade tools or complex setup.
+Built with small businesses and everyday users in mind, CyberHaven acts as a **lightweight digital shield** — monitoring network traffic, identifying threats, and automatically isolating suspicious activity **without requiring expensive enterprise-grade tools or complex setup.**
 
-Our mission is simple: **make powerful cybersecurity accessible to everyone.**
-
----
-
-##  Features
-
--  **Honeynet Containment:** Automatically isolates malicious traffic into a secure sandbox for analysis.
--  **Real-Time Detection:** Identifies port scans, malware callbacks, brute-force attempts, and beaconing.
--  **IPv4 & IPv6 Support:** Full dual-stack monitoring for modern networks.
--  **HTTPS/TLS Analysis:** Detects malicious encrypted traffic using JA3 fingerprinting — without needing decryption.
--  **C2 Beacon Detection:** Flags repetitive, timed communication patterns associated with command-and-control servers.
--  **Alerting System:** Sends clear, actionable alerts locally or via webhook (e.g., Slack, Discord).
--  **Firewall & IDS Integration:** Can connect directly to your firewall or IDS to automate blocking or response.
+👉 Our mission is simple: **make powerful cybersecurity accessible to everyone.**
 
 ---
 
-##  Why I Built CyberHaven
-
-Small businesses are targeted by cybercriminals every day — and most don’t have the resources to defend themselves.  
-I built CyberHaven to **change that.** It’s my way of giving back to the community: a free, practical defense tool that anyone can use to protect their digital assets.
-
-This project is also part of a bigger vision — to create tools that make the internet a safer place for families, small businesses, and organizations around the world.
-
----
-
-## ⚙️ How It Works
-
-1. **Capture:** CyberHaven passively monitors network traffic using `libpcap`.
-2. **Analyze:** Each packet is inspected for signs of malicious behavior, unusual patterns, or known attack signatures.
-3. **Contain:** Suspicious traffic is automatically diverted into a honeynet for safe observation.
-4. **Alert:** Real-time alerts are generated with detailed context to support fast decision-making.
+## ✨ Features
+- **Honeynet Containment:** Automatically isolates malicious traffic into a secure sandbox for analysis.
+- **Real-Time Detection:** Identifies port scans, callbacks, brute-force attempts, and beaconing.
+- **IPv4 & IPv6 Support:** Dual-stack traffic analysis for modern networks.
+- **TLS Fingerprint (JA3) Analysis:** Detects encrypted malware traffic without needing decryption.
+- **C2 Beacon Detection:** Flags repetitive, timed patterns linked to command-and-control servers.
+- **Alerting System:** Sends actionable alerts locally or via webhook (e.g., Slack, Discord).
+- **Firewall & IDS Integration:** Connect to your existing security stack to automate blocking or responses.
 
 ---
 
-##  Tech Stack
+## ⚙️ Installation
 
-- **Language:** C++ (lightweight, high-performance, and native on most systems)
-- **Libraries:** `libpcap`, `libcurl`, `OpenSSL`
-- **Platform:** Linux / macOS (Windows support planned)
-
----
-
-##  Installation
-
+### 1️⃣ Clone the Repository
 ```bash
-# Install dependencies
-sudo apt install build-essential libpcap-dev libcurl4-openssl-dev libssl-dev
+git clone https://github.com/<your-username>/CyberHaven-A-safe-haven-for-small-business-networks.git
+cd CyberHaven-A-safe-haven-for-small-business-networks
 
-# Clone the repository
-git clone https://github.com/<your-username>/CyberHaven.git
-cd CyberHaven
+2️⃣ Build the Project
 
-# Compile the project
-g++ -std=c++17 -O2 -pthread -o cyberhaven main.cpp -lpcap -lcurl -lssl -lcrypto
+mkdir build && cd build
+cmake ..
+make
 
-# Run with elevated privileges
-sudo ./cyberhaven
+3️⃣ Run the Tool
 
-## 📊 Example Output
+./cyberhaven-guardian
+
+🔧 Configuration
+config/cyberhaven.conf
+
+config/filter.bpf
+(tcp and (port 22 or port 3389 or port 443)) or (udp and port 53) or (tcp and portrange 5900-5910)
+
+📊 Example Output
 
 [ALERT] rule=PORT_SCAN sev=HIGH src=192.168.1.55 dst=10.0.0.12:22 reason=Multiple unique destination ports detected
 [ALERT] rule=TLS_BEACON sev=HIGH src=2001:db8::4 dst=2607:f8b0::443 reason=Repetitive interval TLS traffic detected
 [ALERT] rule=JA3_MATCH sev=CRITICAL src=10.0.0.10 dst=8.8.8.8:443 reason=Known malware TLS fingerprint matched
 
+🗺️ Roadmap
 
-🛠️ Roadmap
+- [ ] Add graphical web dashboard
+- [ ] Integrate email & SMS alert notifications
+- [ ] Implement machine learning anomaly detection
+- [ ] Raspberry Pi deployment version
+- [ ] Docker support for cloud deployments
 
-- [ ] Add graphical web dashboard for monitoring and visualization  
-- [ ] Integrate email and SMS alert notifications  
-- [ ] Implement machine-learning anomaly detection engine  
-- [ ] Develop Raspberry Pi deployment version for home networks  
-- [ ] Add containerized (Docker) deployment for cloud and enterprise environments
+🤝 Contributing
 
-## 🤝 Contributing
+Contributions are welcome! If you’d like to improve CyberHaven, submit a pull request or open an issue. Whether it’s adding a feature, fixing a bug, or improving documentation — your input makes this project stronger.
 
-Contributions are welcome!
-If you'd like to improve CyberHaven, submit a pull request or open an issue. Whether it's adding a feature, fixing a bug, or improving documentation, your input helps make CyberHaven stronger and more useful.
+👨‍💻 About the Developer
 
-## 👤 About the Developer
+Created by Eddie Ocon, a cybersecurity student and developer passionate about building practical tools that protect small businesses and make the internet a safer place for everyone.
+
+“My mission is simple: empower people with free, accessible cybersecurity solutions that truly make a difference.”
+
+📜 License
+
+MIT License
+
+Copyright (c) 2025 Eddie Ocon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction...
+
+
 
 
