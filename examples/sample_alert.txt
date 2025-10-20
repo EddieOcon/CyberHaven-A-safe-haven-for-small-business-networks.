@@ -1,0 +1,3 @@
+[ALERT] rule=PORT_SCAN sev=HIGH src=192.168.1.55 dst=10.0.0.12:22 why=unique destination ports >= threshold in sliding window
+[ALERT] rule=TLS_BEACON sev=HIGH src=2001:db8::4 dst=2607:f8b0::443 sni=example.com ja3=72a589da586844d7f0818ce684948eea why=Regular interval TLS traffic on 443 with same JA3/SNI (possible C2 beacon).
+[ALERT] rule=JA3_MATCH sev=HIGH src=10.0.0.10 dst=8.8.8.8:443 sni=cdn.badco.com ja3=d4f5f5c43b8a3e3e1234567890abcdef why=JA3 fingerprint matched blocklist: d4f5f5c43b8a3e3e1234567890abcdef
