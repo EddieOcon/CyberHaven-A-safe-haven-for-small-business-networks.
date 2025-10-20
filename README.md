@@ -1,6 +1,7 @@
 # 🛡️ CyberHaven – A Safe Haven for Small Business Networks
 
-### 📜 Overview
+###  Overview
+
 **CyberHaven** is a free, open-source cybersecurity tool designed to **detect, trap, and alert** on malicious activity in real time.  
 Built with small businesses and everyday users in mind, CyberHaven acts as a lightweight **digital shield**, monitoring network traffic, identifying threats, and automatically isolating suspicious activity — all without expensive enterprise-grade tools or complex setup.
 
@@ -8,7 +9,7 @@ Our mission is simple: **make powerful cybersecurity accessible to everyone.**
 
 ---
 
-## 🚀 Features
+##  Features
 
 -  **Honeynet Containment:** Automatically isolates malicious traffic into a secure sandbox for analysis.
 -  **Real-Time Detection:** Identifies port scans, malware callbacks, brute-force attempts, and beaconing.
@@ -61,3 +62,27 @@ g++ -std=c++17 -O2 -pthread -o cyberhaven main.cpp -lpcap -lcurl -lssl -lcrypto
 
 # Run with elevated privileges
 sudo ./cyberhaven
+
+## 📊 Example Output
+
+[ALERT] rule=PORT_SCAN sev=HIGH src=192.168.1.55 dst=10.0.0.12:22 reason=Multiple unique destination ports detected
+[ALERT] rule=TLS_BEACON sev=HIGH src=2001:db8::4 dst=2607:f8b0::443 reason=Repetitive interval TLS traffic detected
+[ALERT] rule=JA3_MATCH sev=CRITICAL src=10.0.0.10 dst=8.8.8.8:443 reason=Known malware TLS fingerprint matched
+
+
+🛠️ Roadmap
+
+- [ ] Add graphical web dashboard for monitoring and visualization  
+- [ ] Integrate email and SMS alert notifications  
+- [ ] Implement machine-learning anomaly detection engine  
+- [ ] Develop Raspberry Pi deployment version for home networks  
+- [ ] Add containerized (Docker) deployment for cloud and enterprise environments
+
+## 🤝 Contributing
+
+Contributions are welcome!
+If you'd like to improve CyberHaven, submit a pull request or open an issue. Whether it's adding a feature, fixing a bug, or improving documentation, your input helps make CyberHaven stronger and more useful.
+
+## 👤 About the Developer
+
+
