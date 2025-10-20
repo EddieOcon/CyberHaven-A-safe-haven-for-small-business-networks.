@@ -1,0 +1,4 @@
+# Long tcpdump-style filter example (Ports: SSH, RDP, HTTPS, plus common infra)
+(tcp and (port 22 or port 3389 or port 443)) or
+(udp and (port 53 or port 123)) or
+(tcp and portrange 5900-5910)
